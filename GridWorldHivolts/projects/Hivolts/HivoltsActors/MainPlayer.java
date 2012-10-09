@@ -8,10 +8,10 @@ import info.gridworld.grid.Location;
 
 import java.awt.Color;
 
-public class MainPlayer extends Actor {
+public class MainPlayer extends Bug {
 	
 private char keyPressed;	
-	
+private boolean isDead;	
 	  public MainPlayer()
 	    {
 	   	 setColor(Color.WHITE);
@@ -27,6 +27,7 @@ private char keyPressed;
 	        Location next = loc.getAdjacentLocation(getDirection());
 	        if (gr.isValid(next))
 	            moveTo(next);
+	        
 	    }
 	   
 	    
@@ -50,10 +51,12 @@ private char keyPressed;
 		
 		
 		
-	   	 
+	   	if(canMove()) 
+	   	{	
 	    
 	   	 switch(keyPressed)
 	   	 {
+	   	 
 	   	 case 'Q': 	//System.out.println(getLocation().getCol() );
 	   	 	
 	   	 			moveTo(new Location((getLocation().getRow()) -1,(getLocation().getCol())-1));										//move up and left
@@ -78,19 +81,28 @@ private char keyPressed;
 	   		 break;
 	   		} 
 	   		 
-		
-	   	 
-	   	 
+	   	}
+	   	else
+	   		if(canMove() == false)
+	   		{
+	   		die();
+	   		}
 	   	 
 	   	 
 	}
 	
-  
+	public boolean isDead()
+	{
+		return isDead;
+	}
 
 
-	public void die() {
-        removeSelfFromGrid();
-        System.exit(1);
-}
+	public void die() 
+	{
+        isDead = true;
+		removeSelfFromGrid();
+		
+        
+    }
 
 }

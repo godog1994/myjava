@@ -69,10 +69,10 @@ public class Hivolts extends World {
    			int y = generator.nextInt(10)+1;
    			mhoList.add(new Mho());
    			Location mhoLocation = new Location(x,y);
-   			if (mhoLocation.equals(mhoLocation)|| mhoLocation.equals(mainLocation))
+   			if (mhoLocation.equals(mhoLocation)|| mhoLocation.equals(mainLocation))//trying to make it so they dont take the same place as another object
    			{
    			
-   			
+   				
    			}
    			else
    				world.add(mhoLocation,mhoList.iterator().next());
@@ -140,7 +140,10 @@ public class Hivolts extends World {
    	});
    	
    	
-   	 
+   	 if( main.isDead())
+   	 {
+   		 world.setMessage("You have died. You lose.");
+   	 }
    	
    	
    	world.show();

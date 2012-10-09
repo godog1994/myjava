@@ -1,51 +1,94 @@
 package HivoltsActors;
 
 import info.gridworld.actor.Actor;
+import info.gridworld.actor.Bug;
+import info.gridworld.actor.Flower;
+import info.gridworld.grid.Grid;
+import info.gridworld.grid.Location;
 
 import java.awt.Color;
 
 public class MainPlayer extends Actor {
 	
+private char keyPressed;	
+	
 	  public MainPlayer()
 	    {
-	   	 setColor(Color.white);
+	   	 setColor(Color.WHITE);
+	   	 
+	    }
+	  
+	    public void move()
+	    {
+	        Grid<Actor> gr = getGrid();
+	        if (gr == null)
+	            return;
+	        Location loc = getLocation();
+	        Location next = loc.getAdjacentLocation(getDirection());
+	        if (gr.isValid(next))
+	            moveTo(next);
+	    }
+	   
+	    
+	    public void  setKeyPressed(char c)
+	    {
+	    	keyPressed = c;
+	    }
+	    
+	    
+	    
+	    public char getKeyPressed()
+	    {
+	    	return keyPressed;
 	    }
 	    
 	
 	public void act()
     {
+	  
+		
+		
+		
+		
 	   	 
-	   	 char charPressed ='0';
-	   
-	   	 switch(charPressed)
+	    
+	   	 switch(keyPressed)
 	   	 {
-	   	 case 'Q': 	 //move up and left
+	   	 case 'Q': 	//System.out.println(getLocation().getCol() );
+	   	 	
+	   	 			moveTo(new Location((getLocation().getRow()) -1,(getLocation().getCol())-1));										//move up and left
 	   		 break;   	 
-	   	 case 'W':   	 // move up
+	   	 case 'W':  moveTo(new Location((getLocation().getRow()) -1,(getLocation().getCol()))); 	 // move up
 	   		 break;   	 
-	   	 case 'E':   	 // move up and right
+	   	 case 'E':   moveTo(new Location((getLocation().getRow()) -1,(getLocation().getCol())+1));	 // move up and right
 	   		 break;   	 
-	   	 case 'A':   	 // move left
+	   	 case 'A':   moveTo(new Location((getLocation().getRow()) ,(getLocation().getCol())-1));	 // move left
 	   		 break;
-	   	 case 'S':   	 // don't move
+	   	 case 'S':   moveTo(new Location((getLocation().getRow()) ,(getLocation().getCol())));	 // don't move
 	   		 break;
-	   	 case 'D':   	 // move right
+	   	 case 'D':   moveTo(new Location((getLocation().getRow()),(getLocation().getCol())+1)); 	 // move right
 	   		 break;
-	   	 case 'Z':   	 // move down and left
+	   	 case 'Z':   moveTo(new Location((getLocation().getRow()) +1,(getLocation().getCol())-1));	 // move down and left
 	   		 break;
-	   	 case 'X':   	 // move down
+	   	 case 'X':   moveTo(new Location((getLocation().getRow()) +1,(getLocation().getCol())));	 // move down
 	   		 break;
-	   	 case 'C':   	 // move down and right
+	   	 case 'C':   moveTo(new Location((getLocation().getRow()) +1,(getLocation().getCol())+1));	 // move down and right
 	   		 break;
-	   	 case 'J':   	 // jump
+	   	 case 'J':   //moveTo(new Location((getLocation().getRow()) -1,(getLocation().getCol())-1));	 // jump
 	   		 break;
+	   		} 
+	   		 
+		
 	   	 
-	   	 }
+	   	 
 	   	 
 	   	 
 	}
 	
-    public void die() {
+  
+
+
+	public void die() {
         removeSelfFromGrid();
         System.exit(1);
 }

@@ -1,6 +1,7 @@
 package HivoltsActors;
 
 import info.gridworld.actor.Actor;
+
 import info.gridworld.actor.Bug;
 import info.gridworld.actor.Flower;
 import info.gridworld.grid.Grid;
@@ -51,15 +52,16 @@ private boolean isDead;
 		
 		
 		
-	   	if(canMove()) 
-	   	{	
+	   	
+	   		
 	    
 	   	 switch(keyPressed)
 	   	 {
 	   	 
 	   	 case 'Q': 	//System.out.println(getLocation().getCol() );
 	   	 	
-	   	 			moveTo(new Location((getLocation().getRow()) -1,(getLocation().getCol())-1));										//move up and left
+	   	 			moveTo(new Location((getLocation().getRow()) -1,(getLocation().getCol())-1));	
+	   	 			//move up and left
 	   		 break;   	 
 	   	 case 'W':  moveTo(new Location((getLocation().getRow()) -1,(getLocation().getCol()))); 	 // move up
 	   		 break;   	 
@@ -81,14 +83,10 @@ private boolean isDead;
 	   		 break;
 	   		} 
 	   		 
-	   	}
-	   	else
-	   		if(canMove() == false)
-	   		{
-	   		die();
-	   		}
-	   	 
-	   	 
+	   	
+	   	
+	   	
+	   		
 	}
 	
 	public boolean isDead()

@@ -1,0 +1,18 @@
+
+Text I send in email: Hi Mr. Kuszmaul,
+	
+	I know I haven't turned hivolts in and I should have talked to you about it in class. My hivolts project is not complete.ÊThe main player can move with keys but I haven't been able to get it to alternate so it's the mhos turn to move. I have my grid and fences drawing properly but mho movement is an issue. I've also not dealt with collisions. This assignment has been very challenging and I've put a lot of time in but don't have much to show. What do you suggest I do?
+Alex Love
+
+Hivolts is a 1970Õs computer game on the PLATO system.  This game is a turn-based game that takes place on a 12 by 12 bounded grid. The characters in this game are you (the main player), mhos (enemy players), and electric fences (unmovable things that kill mhos or you if you touch them).The board is surrounded with a perimeter of electric fences.12 mhos are randomly placed at the start in an unoccupied grid. 20 additional electric fences are also randomly placed. Finally the main player is randomly placed in an unoccupied grid. 
+
+The actors:
+mainPlayer (smiley face)
+mhos (sad face)
+fence( fence like image)
+	
+Abilities of my program:
+I attempted to recreate this game using the gridworld code as a framework. I am able to set up a game of hivolts with all the actors properly placed at the start. When you start the game using the start button, the keys (qweasdzxc) can be used to move the main player to the corresponding location. If the main player hits a fence, it dies and the game will display ÒYou have died. You Lose.Ó Each time the main player moves the mhos attempt to move but there are errors with this process. Graphics  for the game have also effectively been updated.
+
+Shortcomings of my program:
+An effective turn system does not work. Because of this, the game does not specify when it is your turn. When the mhos act, they move 3 spaces instead of just 1. The mhos do not follow the correct cases of when and where they should move. The mhos are unable to run into fences and die. The mhos disappear when the mainPlayer collides with them. The main players jump button does not allow it to land on a mho, only a random location.  I was also unable to add a working new game button into the game.

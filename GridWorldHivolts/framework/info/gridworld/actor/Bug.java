@@ -28,6 +28,8 @@ import java.awt.Color;
  */
 public class Bug extends Actor
 {
+	private boolean isDead;
+	
     /**
      * Constructs a red bug.
      */
@@ -78,9 +80,7 @@ public class Bug extends Actor
         if (gr.isValid(next))
             moveTo(next);
         else
-            removeSelfFromGrid();
-        Flower flower = new Flower(getColor());
-        flower.putSelfInGrid(gr, loc);
+        	die();
     }
 
     /**
@@ -102,4 +102,12 @@ public class Bug extends Actor
         // ok to move into empty location or onto flower
         // not ok to move onto any other actor
     }
+    
+    public void die() 
+  		{
+  	        isDead = true;
+  			//removeSelfFromGrid();
+  			
+  	        
+  	    } 
 }

@@ -198,8 +198,8 @@ public class GUIController<T>
     {
         controlPanel = new JPanel();
         stepButton = new JButton(resources.getString("button.gui.step"));
-        runButton = new JButton(resources.getString("button.gui.run"));
-        stopButton = new JButton(resources.getString("button.gui.stop"));
+        runButton = new JButton("Start");
+        stopButton = new JButton("Quit");
         
         controlPanel.setLayout(new BoxLayout(controlPanel, BoxLayout.X_AXIS));
         controlPanel.setBorder(BorderFactory.createEtchedBorder());
@@ -218,7 +218,7 @@ public class GUIController<T>
         stopButton.setEnabled(false);
 
         controlPanel.add(Box.createRigidArea(spacer));
-        controlPanel.add(new JLabel(resources.getString("slider.gui.slow")));
+        //controlPanel.add(new JLabel(resources.getString("slider.gui.slow")));
         JSlider speedSlider = new JSlider(MIN_DELAY_MSECS, MAX_DELAY_MSECS,
                 INITIAL_DELAY);
         speedSlider.setInverted(true);
@@ -236,15 +236,15 @@ public class GUIController<T>
             map = map.getParent();
         }
 
-        controlPanel.add(speedSlider);
-        controlPanel.add(new JLabel(resources.getString("slider.gui.fast")));
+        //controlPanel.add(speedSlider);
+        //controlPanel.add(new JLabel(resources.getString("slider.gui.fast")));
         controlPanel.add(Box.createRigidArea(new Dimension(5, 0)));
 
         stepButton.addActionListener(new ActionListener()
         {
             public void actionPerformed(ActionEvent e)
             {
-                step();
+                run();
             }
         });
         runButton.addActionListener(new ActionListener()
@@ -258,7 +258,7 @@ public class GUIController<T>
         {
             public void actionPerformed(ActionEvent e)
             {
-                stop();
+            	System.exit(0);
             }
         });
         speedSlider.addChangeListener(new ChangeListener()

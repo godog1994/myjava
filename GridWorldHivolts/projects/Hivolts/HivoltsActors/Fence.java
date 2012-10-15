@@ -4,12 +4,18 @@ import info.gridworld.actor.Actor;
 import java.awt.Color;
 
 
-
+/**
+ * A permanently placed fence that cannot move
+ * @author alexlove
+ *
+ */
 public class Fence extends Actor {
     
+	public boolean isFence;
     public Fence()
     {
    	 setColor(Color.black);
+   	 isFence = true;
     }
     
     
@@ -20,6 +26,8 @@ public class Fence extends Actor {
     public void act()
     {
 	}
+    
+    
     
     
 
